@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "logoComponent" : "../../components/LogoComponent/LogoComponent",
+      "dilyComponent" : "../../components/DailyComponent/DailyComponent",
+      "maskComponent" : "../../components/MaskComponent/MaskComponent"
+  }
+}

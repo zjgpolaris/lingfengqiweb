@@ -1,0 +1,69 @@
+<wxs src="../../utils/filters.wxs" module="filter"></wxs>
+
+<view class="dailyView" style="{{dailystyle}}">
+    <view class="topBar {{activeBar}}">
+        <view class="statusBar"></view>
+        <view class="navBar">
+            <view bindtap="closeDaily">X</view>
+            <view bindtap="showDailyList">
+                <image style="width:20px;height:20px" src="../../images/daily.png"></image>
+            </view>
+            <view></view>
+        </view>
+    </view>
+    <view class="dailyList {{activeDailyList}}">
+        <view class="statusBar"></view>
+        <view class="titleBar"> 
+            <view bindtap="closeDailyList" style="padding-left:10px;box-sizing:border-box">X</view>
+            <view style="justify-content:center">6月</view>
+            <view></view>
+        </view>
+        <view class="dailyBar">
+            <swiper style="height:100%" current="{{currentWeek}}" bindchange="currentDailyChange">
+                <block wx:for="{{weeks}}" wx:for-item="days" wx:key="days">
+                    <swiper-item style="display:flex">
+                        <view wx:for="{{days}}" class="days" wx:for-index="dayindex" wx:key="dayindex+item">
+                            <view style="font-size:12px;margin-bottom:5px;color:gray">
+                                {{weeksDays[dayindex]}}
+                            </view>
+                            <view class="dateCircle" bindtap="changeCurrent" data-index="{{dayindex}}" style="background: lightgray url({{baseURL+imgUrls[dayindex].imgURL}});background-size:cover">
+                                {{filter.filterDate(item)}}
+                            </view>
+                            <view wx:if="{{current==dayindex}}" class="showindex"></view>
+                        </view>
+                    </swiper-item>
+                </block> 
+            </swiper>
+        </view>
+    </view>
+
+    <swiper indicator-dots="{{indicatorDots}}"
+    style="width:100%;height:100%"
+    current="{{current}}"
+    autoplay="{{autoplay}}" 
+    interval="{{interval}}" 
+    bindchange= "currentchagne"
+    duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+            <view style="background:url({{baseURL+item.imgURL}});background-size:cover;height:100% ">
+                <view class="descriptionView {{activeClass}}">
+                    <view class="daily">
+                        <view style="font-size:80rpx">{{filter.filterTime(item.daily)[2]}}</view>
+                        <view style="font-size:30rpx">
+                            <text>{{filter.filterTime(item.daily)[1]}}</text>
+                            <text>{{filter.filterTime(item.daily)[3]}}</text>
+                        </view>
+                    </view>
+                    <view style="font-size:50rpx">{{item.description.content}}</view>
+                    <view style="font-size:30rpx">
+                        <text>{{item.description.title+'-'}}</text>
+                        <text>{{item.description.author}}</text>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </block>
+    </swiper>
+</view>
+  

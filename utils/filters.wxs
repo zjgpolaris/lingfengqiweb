@@ -1,0 +1,13 @@
+var filterTime = function(daily){
+    var date = getDate(parseInt(daily)).toString().split(' ')
+    return date
+}
+var filterDate = function(item){
+    var date = getDate(item)
+    return date.getDate()
+}
+
+module.exports={
+    filterTime : filterTime,
+    filterDate : filterDate
+}

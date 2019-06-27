@@ -1,0 +1,7 @@
+<view class="MaskView {{activeClass}}"
+    bindtap="closeMask"
+    bindtransitionend="transitionend"
+> 
+    <view class="maskTop"></view>
+    <view class="maskBottom"></view>
+</view>

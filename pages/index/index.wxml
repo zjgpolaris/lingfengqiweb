@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <logoComponent></logoComponent>
+  <dilyComponent bind:showMaskView="showMaskView" showDesc="{{showDesc}}"></dilyComponent>
+  <maskComponent wx:if="{{isShowMask}}" bind:hideMaskView="hideMaskView"></maskComponent>
+</view>

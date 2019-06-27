@@ -1,0 +1,9 @@
+<!--components/LogoComponent/LogoComponent.wxml-->
+<view class="LogoView {{activeclass}}"
+  bindanimationend="animationend" bindanimationstart="animationstart"
+  wx:if="{{logoShow}}"
+>
+  <view  class="Logo">
+    <image src='../../images/timg.gif' />
+  </view>
+</view>

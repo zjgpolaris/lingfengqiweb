@@ -1,0 +1,46 @@
+/* components/LogoComponent/LogoComponent.wxss */
+.LogoView{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.Logo{
+  width: 100px;
+  height: 100px;
+  background: lightcoral;
+}
+.Logo image{
+  width: 100%;
+  height: 100%
+}
+@keyframes logo-enter-active{
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes logo-leave-active{
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
+.logo-enter-active {
+  animation: logo-enter-active 1s;
+  animation-fill-mode: forwards
+}
+.logo-leave-active {
+  animation: logo-leave-active 1s;
+  animation-fill-mode : forwards
+}
